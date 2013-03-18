@@ -1658,7 +1658,7 @@ read_code_header(LoaderState* stp)
     /*
       WANGJIA:
     */
-    printf("WANGJIA: my beam_load\n");
+    // printf("WANGJIA: my beam_load\n");
 
     /*
      * Verify the number of the highest opcode used.
