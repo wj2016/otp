@@ -639,6 +639,11 @@ bif 'erl.lang.list.keylist':search/3	ebif_keylist_search_3 lists_keysearch_3
 bif lists:keyfind/3
 
 #
+# Bif for WANGJIA wangjia
+#
+bif wangjia:hiwangjia/1
+
+#
 # Bifs for debugging.
 #
 
