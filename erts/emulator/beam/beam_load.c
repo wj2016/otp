@@ -1656,6 +1656,11 @@ read_code_header(LoaderState* stp)
     }
 
     /*
+      WANGJIA:
+    */
+    printf("WANGJIA: my beam_load\n");
+
+    /*
      * Verify the number of the highest opcode used.
      */
     GetInt(stp, 4, opcode_max);
