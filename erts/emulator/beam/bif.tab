@@ -642,6 +642,9 @@ bif lists:keyfind/3
 # Bif for WANGJIA wangjia
 #
 bif wangjia:hiwangjia/1
+bif wangjia:integer2list/1
+bif wangjia:mylength/1
+bif wangjia:print_list/1
 
 #
 # Bifs for debugging.
