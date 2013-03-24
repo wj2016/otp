@@ -914,7 +914,7 @@ erts_send_message(Process* sender,
 	Uint dt_utag_size = 0;
 	Eterm utag = NIL;
 #endif
-
+      printf("sending messages 1111\r\n");
 	BM_SWAP_TIMER(send,size);
 	msize = size_object(message);
 	BM_SWAP_TIMER(size,send);
@@ -985,6 +985,9 @@ erts_send_message(Process* sender,
 			   );
         BM_SWAP_TIMER(send,system);
     } else if (sender == receiver) {
+      // send messages to itself
+      //printf("send messages 2222\r\n");
+
 	/* Drop message if receiver has a pending exit ... */
 #ifdef ERTS_SMP
 	ErtsProcLocks need_locks = (~(*receiver_locks)
@@ -1033,6 +1036,10 @@ erts_send_message(Process* sender,
         BM_SWAP_TIMER(send,system);
 	return;
     } else {
+      /************************************************************/
+      // wangjia, sending messages
+      //     3333333333333 send from  A to B
+      /*************************************************************/
 #ifdef ERTS_SMP
 	ErlOffHeap *ohp;
         Eterm *hp;
@@ -1052,6 +1059,7 @@ erts_send_message(Process* sender,
 #endif
 			   );
         BM_SWAP_TIMER(send,system);
+        /*************** END ERTS_SMP ******************************/
 #else
 	ErlMessage* mp = message_alloc();
         Eterm *hp;
