@@ -1334,6 +1334,7 @@ erts_mtx_lock_x(erts_mtx_t *mtx, char *file, unsigned int line)
 erts_mtx_lock(erts_mtx_t *mtx)
 #endif
 {
+  // wangjia: USE_THREADS defined by external gcc -DUSER_THREADS
 #ifdef USE_THREADS
 #ifdef ERTS_ENABLE_LOCK_CHECK
     erts_lc_lock(&mtx->lc);
@@ -1341,6 +1342,9 @@ erts_mtx_lock(erts_mtx_t *mtx)
 #ifdef ERTS_ENABLE_LOCK_COUNT
     erts_lcnt_lock(&mtx->lcnt);
 #endif
+    // wangjia: to call real implementation
+    // Actually, it calls
+    // ethr_mutex:ETHR_INLINE_MTX_FUNC_NAME_(ethr_mutex_lock)
     ethr_mutex_lock(&mtx->mtx);
 #ifdef ERTS_ENABLE_LOCK_COUNT
     erts_lcnt_lock_post_x(&mtx->lcnt, file, line);

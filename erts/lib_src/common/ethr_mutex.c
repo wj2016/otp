@@ -1769,6 +1769,8 @@ ethr_mutex_trylock(ethr_mutex *mtx)
 void
 ethr_mutex_lock(ethr_mutex *mtx)
 {
+    // wangjia: what is this? never called!!!
+    printf("wangjia, HELP!!!! This is never called\r\n");
     ETHR_ASSERT(!ethr_not_inited__);
     ETHR_ASSERT(mtx);
     ETHR_ASSERT(mtx->initialized == ETHR_MUTEX_INITIALIZED);

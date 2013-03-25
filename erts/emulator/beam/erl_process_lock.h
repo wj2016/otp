@@ -887,6 +887,7 @@ erts_pid2proc_opt(Process *c_p,
 	need_locks &= ~c_p_have_locks;
 	if (!need_locks) {
 	    proc = c_p;
+            // wangjia: to get locks
 	    erts_pix_lock(pix_lock);
 	    if (flags & ERTS_P2P_FLG_SMP_INC_REFC)
 		proc->lock.refc++;

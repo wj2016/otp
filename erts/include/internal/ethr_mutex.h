@@ -595,6 +595,7 @@ ETHR_INLINE_MTX_FUNC_NAME_(ethr_mutex_trylock)(ethr_mutex *mtx)
 static ETHR_INLINE void
 ETHR_INLINE_MTX_FUNC_NAME_(ethr_mutex_lock)(ethr_mutex *mtx)
 {
+  // wangjia: not this ethr_mutex_lock
     ethr_sint32_t act;
     ETHR_MTX_HARD_DEBUG_FENCE_CHK(mtx);
     ETHR_MTX_DBG_CHK_UNUSED_FLG_BITS(mtx);
@@ -651,8 +652,11 @@ static ETHR_INLINE void
 ETHR_INLINE_MTX_FUNC_NAME_(ethr_mutex_lock)(ethr_mutex *mtx)
 {
     int res = pthread_mutex_lock(&mtx->pt_mtx);
+    // wangjia: this function called
+    // Don't print in normal case, this function called very often
+    /* printf("haha\r\n"); */
     if (res != 0)
-	ETHR_FATAL_ERROR__(res);
+       ETHR_FATAL_ERROR__(res);
 }
 
 static ETHR_INLINE void
