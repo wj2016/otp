@@ -797,6 +797,7 @@ ERTS_GLB_INLINE void
 erts_smp_mtx_init_locked_x(erts_smp_mtx_t *mtx, char *name, Eterm extra)
 {
 #ifdef ERTS_SMP
+  // wangjia, here it will call pthread_mutex_init finally
     erts_mtx_init_locked_x(mtx, name, extra);
 #endif
 }
