@@ -1007,7 +1007,7 @@ erts_send_message(Process* sender,
 #endif
 	{
 	    ErlMessage* mp = message_alloc();
-
+            printf("message_alloc called\r\n");
             DTRACE6(message_send, sender_name, receiver_name,
                     size_object(message), tok_label, tok_lastcnt, tok_serial);
 	    mp->data.attached = NULL;
@@ -1061,6 +1061,7 @@ erts_send_message(Process* sender,
         BM_SWAP_TIMER(send,system);
         /*************** END ERTS_SMP ******************************/
 #else
+        printf("message_alloc called\r\n");
 	ErlMessage* mp = message_alloc();
         Eterm *hp;
         BM_SWAP_TIMER(send,size);

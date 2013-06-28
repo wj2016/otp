@@ -641,10 +641,39 @@ bif lists:keyfind/3
 #
 # Bif for WANGJIA wangjia
 #
-bif wangjia:hiwangjia/1
-bif wangjia:integer2list/1
-bif wangjia:mylength/1
-bif wangjia:print_list/1
+bif wangjia:demo_sizeof_types/0
+bif wangjia:demo_is_small/1
+bif wangjia:demo_small/1
+
+## tuple
+bif wangjia:demo_is_tuple/1
+bif wangjia:demo_now/0
+bif wangjia:demo_date/0
+bif wangjia:demo_tuple/1
+
+bif wangjia:demo_integer_to_list/1
+bif wangjia:demo_print_list/1
+bif wangjia:demo_length/1
+bif wangjia:demo_types/1
+
+## process
+bif wangjia:demo_process_basic/0
+bif wangjia:demo_pid_to_process_pointer/1
+bif wangjia:demo_message_basic/0
+bif wangjia:demo_send_message/2
+bif wangjia:demo_print_message_queue/1
+
+#
+# Bifs to learn locks
+#
+bif wangjialock:demo_pid_to_process_pointer/1
+bif wangjialock:demo_whereis/1
+
+# Bifs to learn message related
+bif wangjiamessage:demo_send_message/2
+
+# Bifs to learn process
+bif wangjiaprocess:demo_pcb/1
 
 #
 # Bifs for debugging.
